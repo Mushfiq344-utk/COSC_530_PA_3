@@ -27,7 +27,7 @@ void init(float a[], float b[])
    }
 }
 
-main()
+int main()
 {
    float totaltime, tmptime, starttime, endtime, result;
    int i;
