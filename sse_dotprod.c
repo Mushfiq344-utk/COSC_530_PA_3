@@ -1,5 +1,4 @@
-// sse_dotprod.c
-#include <emmintrin.h>   // SSE2 header; contains __m128 and intrinsics
+#include <emmintrin.h>
 
 float dotprod(float x[], float y[], int n) {
     __m128 sum_vec = _mm_setzero_ps();  // [0,0,0,0]
@@ -24,7 +23,6 @@ float dotprod(float x[], float y[], int n) {
     float sum = temp[0] + temp[1] + temp[2] + temp[3];
 
     // (Optional) handle any leftover elements if n is not multiple of 4
-    // but your test sizes are all multiples of 4 (powers of 2)
     for (; i < n; ++i) {
         sum += x[i] * y[i];
     }
