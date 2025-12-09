@@ -13,21 +13,24 @@ width = 0.22
 
 plt.figure(figsize=(12, 6))
 
-plt.bar([p - width*1.5 for p in x], reg, width, label='reg')
-plt.bar([p - width*0.5 for p in x], ur4, width, label='ur4')
-plt.bar([p + width*0.5 for p in x], ae4, width, label='ae4')
-plt.bar([p + width*1.5 for p in x], sse, width, label='sse')
+# Custom colors
+c_reg = "#ff7f0e"   # orange
+c_ur4 = "#2ca02c"   # green
+c_ae4 = "#d62728"   # red
+c_sse = "#1f77b4"   # blue
+
+plt.bar([p - width*1.5 for p in x], reg, width, label='reg', color=c_reg)
+plt.bar([p - width*0.5 for p in x], ur4, width, label='ur4', color=c_ur4)
+plt.bar([p + width*0.5 for p in x], ae4, width, label='ae4', color=c_ae4)
+plt.bar([p + width*1.5 for p in x], sse, width, label='sse', color=c_sse)
 
 plt.xticks(x, sizes)
-plt.xlabel("Array Size (N)")
-plt.ylabel("Average Execution Time (ms)")
-plt.title("Dot Product Performance Comparison")
+plt.xlabel("Array Size")
+plt.ylabel("Avg Time (ms)")
+plt.title("Comparing Performance of Different Types of Dot Product")
 plt.legend()
 plt.grid(axis='y', linestyle='--', alpha=0.6)
 
-# Save PDF
 plt.tight_layout()
 plt.savefig("dotprod_performance.pdf")
-
-# Show the graph
 plt.show()
